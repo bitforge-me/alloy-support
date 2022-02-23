@@ -8,6 +8,8 @@ window.onload = async function() {
 	}, {});
 	console.log(`URL params are ${queryParams.email}`);
 	if(queryParams.email != null) {
-		document.querySelector(".freshwidget-embedded-form").src += `&helpdesk_ticket[requester]=${queryParams.email};`;
+		FreshworksWidget('identify', 'ticketForm', {
+		  email: `${queryParams.email}`,
+		});
 	}
 };
